@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alix Di Rollo | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<canvas id="canvas-bg"></canvas>
+
+<header class="main-nav glass-panel">
+    <div class="glass-content">
+        <nav>
+            <ul>
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section id="home" class="hero reveal">
+        <div class="hero-header">
+            <div class="hero-text">
+                <h1 class="title-main">Alix Di Rollo</h1>
+                <h2 class="subtitle">Étudiant en IUT d'Informatique - Parcours IAMSI</h2>
+            </div>
+            <div class="hero-image-container">
+                <img src="photo.jpg" alt="Alix Di Rollo" class="profile-pic">
+            </div>
+        </div>
+
+        <div class="glass-panel description">
+            <div class="glass-content">
+                <p>Plus qu'un projet, je vous mènerai vers une histoire.
+                    Voici mon portfolio. <br>
+                    N'hésitez pas à naviguer dans le site, et à me découvrir à travers ces pages.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section reveal">
+        <div class="section-header" onclick="toggleSection('skills-content', this)">
+            <h2>Mes compétences</h2>
+            <span class="arrow-icon">↓</span>
+        </div>
+
+        <div id="skills-content" class="collapsible-content">
+            <div class="competences-list">
+                <div class="competences-item">
+                    <span class="year">Informatique : Programmation</span>
+                    <a href="POO.html" class="skill-link">Programmation orientée objets</a>
+                </div>
+                <div class="competences-item">
+                    <span class="year">Informatique : Programmation</span>
+                    <a href="devEfficace.html" class="skill-link">Développement efficace</a>
+                </div>
+                <div class="competences-item">
+                    <span class="year">Informatique : Programmation</span>
+                    <a href="SQLetBD.html" class="skill-link">SQL et gestion de bases de données</a>
+                </div>
+                <div class="competences-item">
+                    <span class="year">Informatique : WEB</span>
+                    <a href="devWEB.html" class="skill-link">Développement WEB</a>
+                </div>
+                <div class="competences-item">
+                    <span class="year">Informatique : Réseaux</span>
+                    <a href="archiRéseaux.html" class="skill-link">Architectures des réseaux</a>
+                </div>
+                <div class="competences-item">
+                    <span class="year">Informatique : Gestion</span>
+                    <a href="managementDesSI.html" class="skill-link">Management des systèmes d'information</a>
+                </div>
+                <div class="competences-item">
+                    <span class="year">Informatique : Gestion</span>
+                    <a href="GSIetGestion.html" class="skill-link">Comptabilité et gestion de projets</a>
+                </div>
+                <div class="competences-item">
+                    <span class="year">Soft-Skills</span>
+                    <a href="Anglais.html" class="skill-link">Maîtrise de l'Anglais / Certifications multiples</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section reveal">
+        <div class="section-header" onclick="toggleSection('projects-content', this)">
+            <h2>Quelques projets scolaires</h2>
+            <span class="arrow-icon">↓</span>
+        </div>
+
+        <div id="projects-content" class="collapsible-content">
+            <div class="projects-list">
+
+                <div class="project-item">
+                    <span class="year">2024</span>
+                    <a href="SAE1.01.html" class="project-link">SAE 1.01 : Le 421</a>
+                </div>
+
+                <div class="project-item">
+                    <span class="year">2024</span>
+                    <a href="SAE1.05.html" class="project-link">SAE 1.05 : L'escape Game</a>
+                </div>
+
+                <div class="project-item">
+                    <span class="year">2025</span>
+                    <a href="CGJ2025.html" class="project-link">Code Game Jam 2025</a>
+                </div>
+
+                <div class="project-item">
+                    <span class="year">2025</span>
+                    <a href="SAE2.01.html" class="project-link">SAE 2.01 : Pokemon !</a>
+                </div>
+
+                <div class="project-item">
+                    <span class="year">2025</span>
+                    <a href="MGC.html" class="project-link">SAE 2.05 : La Montpellier Gaming Con</a>
+                </div>
+
+                <div class="project-item">
+                    <span class="year">2025</span>
+                    <a href="ISISParis.html" class="project-link">ISIS Paris</a>
+                </div>
+
+                <div class="project-item">
+                    <span class="year">2025</span>
+                    <a href="CTF.html" class="project-link">SAE 3.01 : CTF</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section reveal">
+        <h2>Formations</h2>
+        <div class="education-grid">
+            <div class="edu-item glass-panel">
+                <div class="glass-content">
+                    <p class="edu-title">Baccalauréat général, spécialités mathématiques & NSI</p>
+                    <p class="edu-meta">Collège - Lycée Saint Thomas d'Aquin, Oullins, 2017 - 2024</p>
+                </div>
+            </div>
+            <div class="edu-item glass-panel">
+                <div class="glass-content">
+                    <p class="edu-title">BUT Informatique</p>
+                    <p class="edu-meta">Université de Montpellier, 2024 - 2027</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="apropos" class="section reveal">
+        <div class="section-header" onclick="toggleSection('apropos-content', this)">
+            <h2>À propos de moi</h2>
+            <span class="arrow-icon">↓</span>
+        </div>
+
+        <div id="apropos-content" class="collapsible-content">
+            <div class="glass-panel bio-box">
+                <div class="glass-content">
+                    <p class="bio-text">
+                        Je m’appelle <strong>Alix Di Rollo</strong>, j’ai 19 ans et je suis passionné par l’informatique depuis plusieurs années. <br><br>
+                        J’ai naturellement choisi de m’orienter vers le BUT Informatique de Montpellier, où je poursuis actuellement ma deuxième année au sein du parcours <strong>IAMSI</strong> (Intégration d’Applications et Management des Systèmes d’Information). <br><br>
+                        Ce parcours représente pour moi une opportunité idéale d’allier ma passion pour l’informatique à mes compétences en gestion de projet et en management, tout en développant une vision globale des systèmes d’information. <br><br>
+                        Curieux, rigoureux et investi, je m’attache à donner le meilleur de moi-même. Mon objectif est de mettre mes compétences au service de projets concrets et d’être un véritable moteur collectif.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="reveal">
+        <h2>Contact</h2>
+        <div class="glass-panel contact-box">
+            <div class="glass-content">
+                <p>Construisons quelque chose ensemble.</p>
+                <a href="mailto:alixdirollo@gmail.com" class="email-btn">Envoyez-moi un message</a>
+                <a href="CV.pdf" download="CV.pdf" class="cv-btn">
+                    <span class="icon">⤓</span> Télécharger mon CV
+                </a>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/alix-di-rollo-345214367" target="_blank">Mon LinkedIn ici</a>
+                </div>
+                <p>Mail : alixdirollo@gmail.com</p>
+            </div>
+        </div>
+        <p class="copyright">©2025 — Alix Di Rollo</p>
+    </footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
