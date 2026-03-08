@@ -25,6 +25,8 @@ p {
 
 #canvas-bg { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.4; }
 
+a { color: var(--dim-text); }
+
 /* --- NAVIGATION --- */
 .main-nav {
     position: fixed;
@@ -372,4 +374,37 @@ html, body, a, button, .section-header {
     html, body, a, button {
         cursor: auto !important;
     }
+}
+
+/* Ajoute du souffle à l'intérieur de tes cartes */
+.glass-content {
+    position: relative;
+    z-index: 2;
+    padding: 30px; /* Ajoute une marge interne de 30px partout */
+}
+
+/* On annule le padding pour la barre de navigation qui doit rester fine */
+.main-nav .glass-content {
+    padding: 0;
+}
+
+/* Espace entre les éléments dans le bloc portfolio */
+#portfolio-section h2 {
+    margin-bottom: 15px;
+}
+
+#portfolio-section p {
+    margin-bottom: 25px; /* Espace sous le texte avant le bouton */
+    color: var(--dim-text); /* Optionnel : un gris plus doux pour le descriptif */
+}
+
+/* On s'assure que le bouton ne dépasse pas sur mobile */
+.cv-btn {
+    max-width: 100%;
+    white-space: normal; /* Permet au texte de passer à la ligne si besoin sur petit écran */
+    text-align: center;
+}
+
+#portfolio-section .cv-btn {
+    border-style: solid; /* Plus visible que les pointillés pour ce bouton précis */
 }
