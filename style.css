@@ -1,11 +1,13 @@
 :root {
-    --bg-color: #120017;
-    --text-color: #e5e1d8;
-    --accent-sand: #d2c1b0;
-    --glass-bg: rgba(15, 15, 15, 0.85);
-    --glass-border: rgba(210, 193, 176, 0.15);
-    --dim-text: #a0a0a0;
-    --transition-smooth: all 0.7s cubic-bezier(0.2, 0.6, 0.2, 1);
+    --bg-color: #1b0b2a; /* violet profond légèrement plus clair */
+    --text-color: #eceaf6; /* texte clair et doux */
+    --accent: #c9a6ff; /* accent lavande doux */
+    --accent-sand: var(--accent); /* compatibilité avec les noms existants */
+    --glass-bg: linear-gradient(135deg, rgba(46,10,40,0.62), rgba(24,6,32,0.6));
+    --glass-border: rgba(201, 166, 255, 0.10);
+    --dim-text: #bdb3c8; /* gris-violet doux */
+    --muted-text: #dcd6ea; /* couleur pour paragraphes */
+    --transition-smooth: all 0.4s cubic-bezier(0.2, 0.6, 0.2, 1);
 }
 
 html { scroll-behavior: smooth; }
@@ -15,15 +17,15 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: 'Inter', sans-serif;
-    line-height: 1.6;
+    line-height: 1.65;
     overflow-x: hidden;
 }
 
 p {
-    color:var(--accent-sand);
+    color: var(--muted-text);
 }
 
-#canvas-bg { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.4; }
+#canvas-bg { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.25; }
 
 a { color: var(--dim-text); }
 
@@ -84,9 +86,24 @@ a { color: var(--dim-text); }
 }
 
 /* --- LUEUR TOURNANTE --- */
-.glass-panel { position: relative; background: var(--glass-bg); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid var(--glass-border); border-radius: 16px; overflow: hidden; }
-.glass-panel::before { content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(transparent, transparent, transparent, var(--accent-sand)); animation: rotate 6s linear infinite; z-index: 0; }
-.glass-panel::after { content: ""; position: absolute; inset: 1px; background: var(--bg-color); border-radius: 15px; z-index: 1; }
+.glass-panel {
+    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    overflow: hidden;
+}
+/* Remplacement du ::before animé par une légère texture statique et subtile pour alléger le rendu */
+.glass-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 10% 10%, rgba(201,166,255,0.04), transparent 20%);
+    z-index: 0;
+}
+.glass-panel::after { content: ""; position: absolute; inset: 1px; background: rgba(27,10,32,0.45); border-radius: 15px; z-index: 1; }
 .glass-content { position: relative; z-index: 2; }
 @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
@@ -115,10 +132,10 @@ a { color: var(--dim-text); }
 /* Container Flex pour aligner texte et photo */
 .hero-header {
     display: flex;
-    justify-content: space-between; /* Pousse le texte à gauche et la photo à droite */
-    align-items: center; /* Aligne verticalement au centre */
-    margin-bottom: 40px;
-    gap: 30px; /* Espace entre le texte et la photo */
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 22px; /* Espace entre le texte et la photo */
 }
 
 .hero-text {
@@ -139,60 +156,40 @@ a { color: var(--dim-text); }
 
 /* Style de la photo de profil */
 .profile-pic {
-    width: 180px;  /* Taille de la photo */
+    width: 180px;
     height: 180px;
-    border-radius: 50%; /* Rend la photo circulaire */
-    object-fit: cover; /* Évite de déformer l'image */
-    border: 2px solid var(--accent-sand); /* Bordure fine couleur sable */
-    box-shadow: 0 0 20px rgba(210, 193, 176, 0.2); /* Légère lueur */
-    transition: transform 0.5s var(--transition-smooth);
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(201,166,255,0.22);
+    box-shadow: 0 6px 18px rgba(20, 8, 28, 0.45);
+    transition: transform 0.35s var(--transition-smooth);
 }
 
-.profile-pic:hover {
-    transform: scale(1.05); /* Petit effet de zoom au survol */
-}
+.profile-pic:hover { transform: scale(1.03); }
 
 /* Ajustement pour mobile */
 @media (max-width: 768px) {
-    .hero-header {
-        flex-direction: column-reverse; /* Met la photo au dessus du nom sur mobile */
-        text-align: center;
-    }
-    .profile-pic {
-        width: 140px;
-        height: 140px;
-    }
+    .hero-header { flex-direction: column-reverse; text-align: center; }
+    .profile-pic { width: 140px; height: 140px; }
 }
 
 
 /* --- A PROPOS DE MOI --- */
-.bio-box {
-    margin-top: 10px;
-    padding: 30px;
-}
+.bio-box { margin-top: 10px; padding: 26px; }
 
-.bio-text {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-color);
-}
-
-.bio-text strong {
-    color: var(--accent-sand);
-    font-weight: 600;
-}
-
+.bio-text { font-size: 1.05rem; line-height: 1.85; color: var(--text-color); }
 
 /* --- LISTES ET ITEMS --- */
-.container { max-width: 900px; margin: 0 auto; padding: 100px 24px; }
+.container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
 .hero { padding: 10px 0 30px; }
 .title-main { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 300; margin-bottom: 40px; letter-spacing: -2px; }
 .description { padding: 30px; font-size: 1.25rem; }
 
 .competences-item, .project-item {
-    display: flex; align-items: center; padding: 18px 0;
-    transition: var(--transition-smooth); border-bottom: 1px solid rgba(210, 193, 176, 0.05);
+    display: flex; align-items: center; padding: 14px 0;
+    transition: var(--transition-smooth); border-bottom: 1px solid rgba(201,166,255,0.05);
 }
+
 .year {
     font-size: 0.8rem; color: var(--dim-text);
     min-width: 220px; /* Augmenté pour tes longs textes de compétences */
@@ -203,7 +200,7 @@ a { color: var(--dim-text); }
     font-size: clamp(1.1rem, 3vw, 1.6rem); font-weight: 300;
 }
 
-.competences-item:hover, .project-item:hover { transform: translateX(25px); }
+.competences-item:hover, .project-item:hover { transform: translateX(8px); }
 .competences-item:hover .skill-link, .project-item:hover .project-link { color: var(--accent-sand); }
 
 /* --- FORMATIONS ET CONTACT --- */
@@ -214,7 +211,7 @@ a { color: var(--dim-text); }
 .email-btn:hover { background: var(--accent-sand); color: var(--bg-color); }
 .social-links { display: flex; justify-content: center; gap: 30px; }
 .social-links a { color: var(--dim-text); text-decoration: none; }
-.copyright { text-align: center; margin-top: 60px; font-size: 0.75rem; color: #333; }
+.copyright { text-align: center; margin-top: 60px; font-size: 0.75rem; color: var(--dim-text); }
 
 .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition-smooth); }
 .reveal.active { opacity: 1; transform: translateY(0); }
@@ -227,55 +224,24 @@ a { color: var(--dim-text); }
 
 /* Style commun aux boutons d'action */
 .email-btn, .cv-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center; /* Centre le texte horizontalement */
-    gap: 10px;
-    margin: 10px;
-    padding: 15px 35px;
-    min-width: 280px; /* Largeur identique pour les deux */
-    height: 55px;    /* Hauteur identique */
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: 0.3s;
-    position: relative;
-    z-index: 5;
-    box-sizing: border-box;
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 10px; margin: 10px; padding: 12px 28px; min-width: 220px; height: 48px;
+    border-radius: 10px; font-weight: 600; text-decoration: none; transition: 0.25s;
+    position: relative; z-index: 5; box-sizing: border-box;
 }
 
-/* Variantes de bordures (pour garder tes styles originaux) */
-.email-btn {
-    border: 1px solid var(--accent-sand);
-    color: var(--accent-sand);
-    background: transparent;
-}
+.email-btn { border: 1px solid rgba(201,166,255,0.28); color: var(--accent); background: transparent; }
 
-.cv-btn {
-    border: 1px dashed var(--accent-sand);
-    color: var(--accent-sand);
-    background: rgba(210, 193, 176, 0.1);
-}
+.cv-btn { border: 1px dashed rgba(201,166,255,0.24); color: var(--accent); background: rgba(201,166,255,0.04); }
 
-/* Effet au survol commun */
 .email-btn:hover, .cv-btn:hover {
-    background: var(--accent-sand);
+    background: var(--accent);
     color: var(--bg-color);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(210, 193, 176, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(201,166,255,0.08);
 }
 
-
-.cv-btn:hover {
-    background: var(--accent-sand);
-    color: var(--bg-color);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(210, 193, 176, 0.2);
-}
-
-.cv-btn .icon {
-    font-size: 1.2rem;
-}
+.cv-btn .icon { font-size: 1.1rem; }
 
 /* --- PAGES DE DÉTAILS --- */
 
@@ -317,94 +283,64 @@ a { color: var(--dim-text); }
 }
 
 /* --- CURSEUR --- */
-
-/* Cache le curseur réel sur tout le site */
-html, body, a, button, .section-header {
-    cursor: none !important;
-}
-
-/* Le point central */
+/* Rétablir le curseur par défaut pour l'accessibilité : ne plus le masquer globalement */
 #custom-cursor {
     position: fixed;
-    width: 8px;
-    height: 8px;
-    background-color: var(--accent-sand);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s, height 0.2s, opacity 0.2s;
-    z-index: 10000;
-    box-shadow: 0 0 10px var(--accent-sand);
+    width: 8px; height: 8px; background-color: var(--accent);
+    border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, opacity 0.2s; z-index: 10000; box-shadow: 0 0 6px rgba(201,166,255,0.18);
 }
 
-/* Le cercle qui suit (follower) */
 #custom-cursor-follower {
-    position: fixed;
-    width: 30px;
-    height: 30px;
-    border: 1px solid var(--accent-sand);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    /* Transition fluide pour l'effet de retard */
-    transition: transform 0.08s ease-out, width 0.3s, height 0.3s, opacity 0.3s;
-    z-index: 9999;
-    opacity: 0.3;
+    position: fixed; width: 30px; height: 30px; border: 1px solid rgba(201,166,255,0.25);
+    border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%);
+    transition: transform 0.08s ease-out, width 0.3s, height 0.3s, opacity 0.3s; z-index: 9999; opacity: 0.25;
 }
 
-/* État quand on survole un lien ou un bouton */
-#custom-cursor.active {
-    width: 20px;
-    height: 20px;
-    opacity: 0.5;
-}
+#custom-cursor.active { width: 18px; height: 18px; opacity: 0.6; }
+#custom-cursor-follower.active { width: 46px; height: 46px; opacity: 0.8; background-color: rgba(201,166,255,0.06); }
 
-#custom-cursor-follower.active {
-    width: 50px;
-    height: 50px;
-    opacity: 0.8;
-    background-color: rgba(210, 193, 176, 0.1);
-}
-
-/* Cacher le curseur sur mobile (car il n'y a pas de souris) */
 @media (max-width: 768px) {
-    #custom-cursor, #custom-cursor-follower {
-        display: none;
-    }
-    html, body, a, button {
-        cursor: auto !important;
-    }
+    #custom-cursor, #custom-cursor-follower { display: none; }
+    html, body, a, button { cursor: auto !important; }
 }
 
 /* Ajoute du souffle à l'intérieur de tes cartes */
-.glass-content {
-    position: relative;
-    z-index: 2;
-    padding: 30px; /* Ajoute une marge interne de 30px partout */
-}
+.glass-content { position: relative; z-index: 2; padding: 24px; }
 
 /* On annule le padding pour la barre de navigation qui doit rester fine */
-.main-nav .glass-content {
-    padding: 0;
-}
+.main-nav .glass-content { padding: 0; }
 
 /* Espace entre les éléments dans le bloc portfolio */
-#portfolio-section h2 {
-    margin-bottom: 15px;
-}
+#portfolio-section h2 { margin-bottom: 15px; }
 
-#portfolio-section p {
-    margin-bottom: 25px; /* Espace sous le texte avant le bouton */
-    color: var(--dim-text); /* Optionnel : un gris plus doux pour le descriptif */
-}
+#portfolio-section p { margin-bottom: 22px; color: var(--dim-text); }
 
 /* On s'assure que le bouton ne dépasse pas sur mobile */
-.cv-btn {
-    max-width: 100%;
-    white-space: normal; /* Permet au texte de passer à la ligne si besoin sur petit écran */
-    text-align: center;
+.cv-btn { max-width: 100%; white-space: normal; text-align: center; }
+
+#portfolio-section .cv-btn { border-style: solid; }
+
+/* Accessibilité : styles de focus visibles et cohérents */
+:focus {
+    outline: none;
+}
+:focus-visible {
+    box-shadow: 0 0 0 4px rgba(201,166,255,0.12);
+    border-radius: 8px;
 }
 
-#portfolio-section .cv-btn {
-    border-style: solid; /* Plus visible que les pointillés pour ce bouton précis */
+a:focus-visible, button:focus-visible, .email-btn:focus-visible, .cv-btn:focus-visible {
+    box-shadow: 0 0 0 4px rgba(201,166,255,0.14);
 }
+
+/* Respecter la préférence 'reduced motion' pour réduire les animations */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Petite amélioration ergonomique : boutons et liens ont un hit-area plus confortable */
+a, button, .email-btn, .cv-btn { -webkit-tap-highlight-color: rgba(0,0,0,0); }

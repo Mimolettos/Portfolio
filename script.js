@@ -104,8 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function animateCursor() {
         // Le point suit rapidement
-        cursorX += (mouseX - cursorX) * 0.6;
-        cursorY += (mouseY - cursorY) * 0.6;
+        cursorX += (mouseX - cursorX);
+        cursorY += (mouseY - cursorY);
         cursor.style.left = cursorX + 'px';
         cursor.style.top = cursorY + 'px';
 
