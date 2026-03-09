@@ -143,3 +143,19 @@ document.addEventListener('DOMContentLoaded', () => {
         follower.style.transform = 'translate(-50%, -50%) scale(1)';
     });
 });
+
+// Animation des barres de compétences
+const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const progressBars = entry.target.querySelectorAll('.progress-bar-fill');
+            progressBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width;
+            });
+        }
+    });
+}, { threshold: 0.5 });
+
+const skillsSection = document.querySelector('#hard-skills');
+if (skillsSection) skillObserver.observe(skillsSection);

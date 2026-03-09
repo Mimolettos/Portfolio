@@ -373,3 +373,60 @@ a:focus-visible, button:focus-visible, .email-btn:focus-visible, .cv-btn:focus-v
 
 /* Petite amélioration ergonomique : boutons et liens ont un hit-area plus confortable */
 a, button, .email-btn, .cv-btn { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+
+/* --- COMPÉTENCES MAITRISÉES (BARRES DE PROGRESSION) --- */
+.mastered-skills-box {
+    padding: 35px 30px;
+}
+
+.skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Espace entre chaque barre */
+}
+
+.skill-bar-container {
+    width: 100%;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+    color: var(--text-color);
+}
+
+.skill-name {
+    font-weight: 400;
+}
+
+.skill-percentage {
+    font-weight: 600;
+    color: var(--accent); /* Ton accent lavande doux */
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 8px; /* Épaisseur de la barre */
+    background-color: rgba(201, 166, 255, 0.15); /* Fond semi-transparent violet */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: var(--accent); /* Remplissage lavande */
+    border-radius: 10px;
+    transition: width 1.5s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: var(--accent); /* Ton lavande */
+    border-radius: 10px;
+
+    /* --- MODIFICATIONS ICI --- */
+    width: 0%; /* La barre part de zéro */
+    transition: width 1.5s cubic-bezier(0.2, 0.6, 0.2, 1); /* L'animation dure 1.5s */
+}
