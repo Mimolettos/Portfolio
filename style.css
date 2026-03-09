@@ -165,7 +165,36 @@ a { color: var(--dim-text); }
     transition: transform 0.35s var(--transition-smooth);
 }
 
-.profile-pic:hover { transform: scale(1.03); }
+/* --- ANIMATIONS PASSIVES LÉGÈRES --- */
+/* Léger flottement pour apporter du vivant sans distraire */
+@keyframes float-slow {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+.profile-pic {
+    animation: float-slow 6s ease-in-out infinite;
+    will-change: transform;
+}
+
+/* Déplacement très subtil de la texture d'ambiance sur les panneaux glass */
+@keyframes glass-shift {
+    0% { transform: translateY(0); opacity: 0.04; }
+    50% { transform: translateY(-8px); opacity: 0.06; }
+    100% { transform: translateY(0); opacity: 0.04; }
+}
+
+.glass-panel::before {
+    /* la pseudo-texture existante est animée très lentement */
+    animation: glass-shift 18s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+/* Respecter les préférences d'accessibilité (réduction des animations) */
+@media (prefers-reduced-motion: reduce) {
+    .profile-pic, .glass-panel::before { animation: none !important; }
+}
 
 /* Ajustement pour mobile */
 @media (max-width: 768px) {
