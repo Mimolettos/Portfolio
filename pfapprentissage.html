@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alix Di Rollo | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<canvas id="canvas-bg"></canvas>
+
+<header class="main-nav glass-panel">
+    <div class="glass-content">
+        <nav>
+            <ul>
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <section id="pfapprentissage" class="section reveal">
+        <div class="section-header">
+            <h2>Explorer les compétences (Niveau 2)</h2>
+        </div>
+
+        <div class="section-item">
+            <div class="section-header" onclick="toggleSection('comp2-content', this)">
+                <h3 class="project-link">Compétence 2 : Optimiser des solutions informatiques</h3>
+                <span class="arrow-icon">↓</span>
+            </div>
+            <div id="comp2-content" class="collapsible-content">
+                <div class="glass-panel content-block">
+                    <div class="glass-content">
+                        <p>Description du niveau 2 : À ce stade de notre formation, nous devons être capables d'analyser la complexité des algorithmes, de choisir les structures de données les plus adaptées et d'améliorer les performances d'une solution informatique existante.</p>
+
+                        <p>J'ai pu mobiliser cette compétence lors de plusieurs projets critiques, notamment la SAE 1.01 (Le 421) ou la SAE 2.01 (Pokemon), où l'enjeu était de concevoir un code non seulement fonctionnel, mais aussi efficient. Ces projets m'ont appris à identifier les goulots d'étranglement et à optimiser la gestion de la mémoire et les temps d'exécution via des algorithmes de tri ou de recherche optimisés.</p>
+
+                        <p>Plus récemment, lors de la Code Game Jam 2026, j'ai dû faire preuve de réactivité pour optimiser le rendu et la logique de jeu sous contrainte de temps. Cette capacité à rendre un code plus propre et plus rapide est pour moi un aspect essentiel du développement, que j'applique désormais systématiquement dans mes projets personnels pour garantir une expérience utilisateur fluide.</p>
+
+                        <p>Grâce à ces expériences académiques et compétitives, je considère que je maîtrise aujourd'hui les fondamentaux de l'optimisation logicielle requis pour le niveau 2.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-item">
+            <div class="section-header" onclick="toggleSection('comp3-content', this)">
+                <h3 class="project-link">Compétence 3 : Administrer des systèmes complexes</h3>
+                <span class="arrow-icon">↓</span>
+            </div>
+            <div id="comp3-content" class="collapsible-content">
+                <div class="glass-panel content-block">
+                    <div class="glass-content">
+                        <p>Description du niveau 2 : Le niveau 2 de cette compétence implique d'être capable d'installer, de configurer et de superviser des services réseaux et des systèmes d'exploitation, tout en assurant leur sécurité et leur interopérabilité.</p>
+
+                        <p>Cette compétence a été au cœur de ma formation IAMSI, notamment à travers les modules d'Architecture des réseaux et les SAE dédiées comme la SAE 3.01 CTF. J'ai appris à déployer des services, à gérer des droits d'accès et à sécuriser des flux de données entre différentes machines. La mise en place de protocoles de communication et la compréhension des couches réseaux ont été essentielles pour mener à bien ces projets de déploiement.</p>
+
+                        <p>Sur un plan plus personnel et technique, la sécurisation de mon projet EKKO via les politiques RLS (Row Level Security) sur Supabase m'a permis de comprendre concrètement les enjeux de l'administration des accès. Gérer des environnements sécurisés et isoler les privilèges utilisateurs est une pratique que j'ai intégrée pour protéger l'intégrité des systèmes que je développe.</p>
+
+                        <p>Ces projets m'ont permis de valider ma capacité à administrer des infrastructures informatiques avec rigueur et méthode, répondant ainsi aux exigences du niveau 2 du BUT.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-item">
+            <div class="section-header" onclick="toggleSection('comp4-content', this)">
+                <h3 class="project-link">Compétence 4 : Gérer des données de l'information</h3>
+                <span class="arrow-icon">↓</span>
+            </div>
+            <div id="comp4-content" class="collapsible-content">
+                <div class="glass-panel content-block">
+                    <div class="glass-content">
+                        <p><strong>Description du niveau 2 :</strong> Nous devons, à la fin de cette année, capables de créer, administrer,
+                        gérer et modifier une base de données complexe, ainsi que de la normaliser.</p>
+                        <p>Nous avons pu mettre en exergue cette compétence dans de nombreux projets scolaires, notamment lors de la création
+                        du site WEB ISIS Paris, dans laquelle nous avons géré la base de données complète via PHPMyAdmin, mais aussi lors de SAEs
+                        précédentes, comme la SAE 1.04 et 2.04, où l'objectif était justement d'administrer une base de données que nous pensions nous-mêmes.</p>
+
+                        <p>Plus récemment, j'ai pu expérimenter moi même la gestion de ces bases de données, notamment avec mon projet personnel EKKO, où
+                        j'ai utilisé Supabase pour héberger les données des utilisateurs de façon sécurisée, avec un hash de mot de passe, une protection RLS
+                        et un compte admin différent du compte utilisateur.</p>
+                        C'est pourquoi je considère désormais cette compétence acquise, grâce aux projets que nous avons pu mener à l'IUT, et de mes expériences personnelles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+<script src="script.js"></script>
+
+</main>
+
+</body>
+</html>
